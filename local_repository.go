@@ -410,6 +410,9 @@ func urlMatchLocalRepositoryRoots() ([]string, error) {
 		}
 		return nil, err
 	}
+	if out == "" {
+		return nil, nil
+	}
 	items := strings.Split(out, "\x00")
 	ret := make([]string, len(items))
 	for i, kvStr := range items {
